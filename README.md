@@ -44,9 +44,9 @@ docker compose up --build
 ```
 Контейнеры будут развернуты:
 
-app — Spring Boot API (порт: 8080)
-db — PostgreSQL база данных (порт: 5777)
-adminer — web-интерфейс к БД (порт: 8081)
+app — Spring Boot API (порт: 8080)  
+db — PostgreSQL база данных (порт: 5777)  
+adminer — web-интерфейс к БД (порт: 8081)  
 
 ## Swagger UI
 
