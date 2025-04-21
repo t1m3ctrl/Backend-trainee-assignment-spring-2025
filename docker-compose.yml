@@ -1,0 +1,37 @@
+services:
+  app:
+    build: .
+    container_name: spring-app
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/$POSTGRESDB_DATABASE
+      SPRING_DATASOURCE_USERNAME: $POSTGRESDB_USER
+      SPRING_DATASOURCE_PASSWORD: $POSTGRESDB_ROOT_PASSWORD
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  db:
+    image: postgres:15
+    container_name: postgres
+    environment:
+      POSTGRES_USER: $POSTGRESDB_USER
+      POSTGRES_PASSWORD: $POSTGRESDB_ROOT_PASSWORD
+      POSTGRES_DB: $POSTGRESDB_DATABASE
+    ports:
+      - "5777:5432"
+    volumes:
+      - pvz:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    ports:
+      - "8081:8080"
+    depends_on:
+      - db
+    restart: unless-stopped
+
+volumes:
+  pvz:

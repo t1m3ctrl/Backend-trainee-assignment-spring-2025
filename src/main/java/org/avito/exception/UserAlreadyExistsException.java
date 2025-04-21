@@ -1,0 +1,7 @@
+package org.avito.exception;
+
+public class UserAlreadyExistsException extends RuntimeException {
+    public UserAlreadyExistsException(String message) {
+        super(message);
+    }
+}
