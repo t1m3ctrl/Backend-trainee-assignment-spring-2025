@@ -25,8 +25,8 @@ public class ItemController {
     }
 
     @PreAuthorize("hasRole('ROLE_CLIENT')")
-    @DeleteMapping("/{receptionId}")
-    public void deleteLastItem(@PathVariable UUID receptionId) {
-        itemService.deleteLastItemFromReception(receptionId);
+    @DeleteMapping("/{pvzId}")
+    public void deleteLastItem(@PathVariable UUID pvzId) {
+        itemService.deleteLastItemFromReception(pvzId);
     }
 }
